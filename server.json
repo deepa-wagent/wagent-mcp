@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.deepa-wagent/wagent",
+  "title": "Wagent",
+  "description": "WhatsApp MCP server with per-chat permissions. Agents see only chats you allow; sends wait for you.",
+  "version": "1.0.0",
+  "websiteUrl": "https://wagent.sh/",
+  "repository": { "url": "https://github.com/deepa-wagent/wagent-mcp", "source": "github" },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.wagent.sh/c/{connection_id}/mcp",
+      "variables": {
+        "connection_id": {
+          "description": "The id in your agent's private link from app.wagent.sh (https://mcp.wagent.sh/c/<connection_id>/mcp). Sign-in is OAuth; you approve the agent with a code sent to your own WhatsApp.",
+          "isRequired": true
+        }
+      }
+    }
+  ]
+}
