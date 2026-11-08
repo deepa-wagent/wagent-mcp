@@ -15,8 +15,13 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - name: Install mcp-publisher v1.8.8
-        run: curl -fsSL https://github.com/modelcontextprotocol/registry/releases/download/v1.8.8/mcp-publisher_linux_amd64.tar.gz | tar xz mcp-publisher
+      # Built from the tagged source with Go: release-asset downloads returned 504 on 2026-11-08.
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.26'
+          cache: false
+      - name: Build mcp-publisher v1.8.8
+        run: GOBIN="$PWD" go install github.com/modelcontextprotocol/registry/cmd/publisher@v1.8.8 && mv publisher mcp-publisher
       - run: ./mcp-publisher validate
       - run: ./mcp-publisher login github-oidc
       - run: ./mcp-publisher publish
