@@ -1,3 +1,5 @@
+<img src="assets/logo-400.png" alt="Wagent logo" width="96" height="96">
+
 # Wagent: WhatsApp MCP server with per-chat permissions
 
 Connect your WhatsApp to Claude, ChatGPT, Claude Code, Cursor, n8n or any MCP client, **without handing the agent your whole account**. You choose which chats each agent can see and what it may do there. Rules run in Wagent, outside the AI, and anything that needs you waits for your yes.
@@ -22,7 +24,7 @@ The private link looks like this (remote MCP, Streamable HTTP, OAuth sign-in):
 https://mcp.wagent.sh/c/<connection_id>/mcp
 ```
 
-Setup for each client: [Claude](examples/claude-desktop.md) · [Claude Code](examples/claude-code.md) · [Cursor](examples/cursor.json) · [n8n](examples/n8n.md)
+Setup for each client: [Cline and other AI coding agents](llms-install.md) · [Claude](examples/claude-desktop.md) · [Claude Code](examples/claude-code.md) · [Cursor](examples/cursor.json) · [n8n](examples/n8n.md)
 
 ## Levels per chat
 
