@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "wagent": {
-      "url": "https://mcp.wagent.sh/c/<connection_id>/mcp"
+      "url": "https://mcp.wagent.sh/mcp"
     }
   }
 }

@@ -16,13 +16,15 @@ Connect your WhatsApp to Claude, ChatGPT, Claude Code, Cursor, n8n or any MCP cl
 1. **Sign up** at [app.wagent.sh](https://app.wagent.sh) with your email. No password.
 2. **Connect your number.** Scan a QR code in WhatsApp's *Linked devices*, or use a pairing code. Your phone stays the main device.
 3. **Choose chats.** Every chat starts **Hidden**. Pick Hidden, Read, Draft or Send for each chat or label.
-4. **Connect an agent.** Paste the agent's private link into your MCP client, then approve it with a code sent to your own WhatsApp.
-
-The private link looks like this (remote MCP, Streamable HTTP, OAuth sign-in):
+4. **Connect an agent.** Add this URL to your MCP client (remote MCP, Streamable HTTP, OAuth sign-in):
 
 ```
-https://mcp.wagent.sh/c/<connection_id>/mcp
+https://mcp.wagent.sh/mcp
 ```
+
+Sign in to Wagent, pick an existing agent connection or create a new one, then approve it with a code sent to your own WhatsApp. Each agent still gets only the chats and rights you set for that connection.
+
+Already have an agent's private link from app.wagent.sh (`https://mcp.wagent.sh/c/<connection_id>/mcp`)? It keeps working.
 
 Setup for each client: [Cline and other AI coding agents](llms-install.md) · [Claude](examples/claude-desktop.md) · [Claude Code](examples/claude-code.md) · [Cursor](examples/cursor.json) · [n8n](examples/n8n.md)
 

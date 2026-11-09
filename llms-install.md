@@ -1,34 +1,33 @@
 # Installing the Wagent MCP server (for AI coding agents such as Cline)
 
-Wagent is a **hosted, remote MCP server**. There is nothing to clone, build or run locally. The user needs a Wagent account and a private connection link; you add that link to the MCP settings.
+Wagent is a **hosted, remote MCP server**. There is nothing to clone, build or run locally. Add one URL to the MCP settings; the user signs in to Wagent the first time it's used.
 
-## What you need from the user
+## What the user needs
 
-Ask the user for their agent's private Wagent link. It looks like this:
-
-```
-https://mcp.wagent.sh/c/<connection_id>/mcp
-```
-
-If they don't have one yet, tell them to:
+A Wagent account with a connected WhatsApp number. If they don't have one yet, tell them to:
 
 1. Sign up at https://app.wagent.sh (email only, no password). New numbers get a 5-day trial.
 2. Connect their WhatsApp number by scanning the QR code in WhatsApp > Linked devices.
-3. Choose which chats this agent may see. Every chat starts Hidden; they pick Read, Draft or Send per chat.
-4. Create an agent connection and copy its private link.
+3. Choose which chats agents may see. Every chat starts Hidden; they pick Read, Draft or Send per chat.
 
-Do not guess or construct a `connection_id`. Only use the exact link the user gives you.
+The URL is the same for everyone:
+
+```
+https://mcp.wagent.sh/mcp
+```
+
+If the user already has an agent's private link (`https://mcp.wagent.sh/c/<connection_id>/mcp`), use that instead. Never guess or construct a `connection_id`.
 
 ## Add it to Cline
 
-Add this entry to `cline_mcp_settings.json` (replace the URL with the user's link):
+Add this entry to `cline_mcp_settings.json`:
 
 ```json
 {
   "mcpServers": {
     "wagent": {
       "type": "streamableHttp",
-      "url": "https://mcp.wagent.sh/c/<connection_id>/mcp",
+      "url": "https://mcp.wagent.sh/mcp",
       "disabled": false,
       "autoApprove": []
     }
@@ -40,7 +39,7 @@ Leave `autoApprove` empty. Wagent already asks the WhatsApp owner before drafts 
 
 ## First connection
 
-1. The first request opens an OAuth sign-in in the browser. The user signs in to Wagent.
+1. The first request opens an OAuth sign-in in the browser. The user signs in to Wagent and picks an existing agent connection or creates one for Cline.
 2. Wagent sends a short code to the user's own WhatsApp. The user enters it to approve this agent.
 3. After approval, the tools appear: `list_chats`, `get_messages`, `search_messages`, `get_contact`, `list_labels`, `search_knowledge`, `draft_reply`, `send_message`, `send_media`.
 
